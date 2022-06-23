@@ -1,19 +1,33 @@
 import pandas as pd
 import datetime
 import numpy as np
+import gcsfs
+
 
 #fastapi imports
 from fastapi import FastAPI
-from pydantic import BaseModel, validator
+from pydantic import BaseModel, validator, validate_arguments
 
 # For loading model
-from tensorflow.keras.models import load_model
+import tensorflow as tf
 import pickle
 
 Time_Step = 12
+########
+
+PROJECT_NAME = 'ForecastingAccidentsApp'
+CREDENTIALS = 'service_account_token.json'
+MODEL_PATH = 'gs://forecast123/best_model.h5'
+import h5py
+
+FS = gcsfs.GCSFileSystem(project=PROJECT_NAME, token=CREDENTIALS)
+with FS.open(MODEL_PATH, 'rb') as model_file:
+    model_gcs = h5py.File(model_file, 'r')
+    model = tf.keras.models.load_model(model_gcs)
+
 
 app = FastAPI()
-model = load_model('best_model.h5')
+#model = load_model('best_model.h5')
 df = pd.read_csv('./data/Alko_Insg.csv', index_col='date')
 
 #Pickle scaler for features and value loading
@@ -108,6 +122,7 @@ def predict(input_feat: input_item):
     xs_inf, ys_inf = creat_ds(input_df, input_df.value, time_step=Time_Step)
 
     #Predict
+
     y_predict_inf = model.predict(xs_inf)
 
     #convert the scaled value again into actual value
@@ -121,6 +136,8 @@ def predict(input_feat: input_item):
         real_value = int(df[df.index == input_date].value[0])
         #print('Real value ', real_value)
 
-
     #return {'prediction_value': predicted_Value, 'real_value':real_value}
     return {'prediction_value': predicted_Value}
+
+
+# https://medium.com/analytics-vidhya/how-to-load-keras-h5-model-format-from-google-cloud-bucket-abf9a77d3cb4
