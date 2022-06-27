@@ -3,7 +3,7 @@
 ## Project Overview:
 Forecasting the accidents counts is an important topic to prepare aids, ambulances for victims. Also, it helps to expect the hospitals preparations.
 
-In this project, the datasets from [Munich Open Data Portal] (https://opendata.muenchen.de/dataset/monatszahlen-verkehrsunfaelle/resource/40094bd6-f82d-4979-949b-26c8dc00b9a7) 
+In this project, the datasets from [Munich Open Data Portal](https://opendata.muenchen.de/dataset/monatszahlen-verkehrsunfaelle/resource/40094bd6-f82d-4979-949b-26c8dc00b9a7) 
 
 During my work on this project, I had the following goals:
 - Visualizing data and exploring some insights using the available dataset. 
