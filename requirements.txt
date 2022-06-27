@@ -2,7 +2,9 @@ fastapi
 tensorflow
 Keras
 keras-preprocessing
-numpy
+pandas
 pydantic
 scikit-learn
 uvicorn
+gcsfs
+datetime

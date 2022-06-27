@@ -16,7 +16,7 @@ Time_Step = 12
 ########
 
 PROJECT_NAME = 'ForecastingAccidentsApp'
-CREDENTIALS = 'forecastingaccidentsapp-03403efcc39d.json'
+CREDENTIALS = 'google_account_service'
 MODEL_PATH = 'gs://forecast123/best_model.h5'
 import h5py
 

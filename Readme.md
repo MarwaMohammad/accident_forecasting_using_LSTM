@@ -24,6 +24,8 @@ During my work on this project, I had the following goals:
 
 ## Installation Instructions:
 Please, read the Accident Number Forecasting.pdf to replicate the results.
+Please, put your google account service token inside the project repo before building your docker image.
+Also, fill the CREDENTIALS parameters with google account service token file name in gapp.py.
 
 ## Contact info:
 - Name: Marwa Matar
