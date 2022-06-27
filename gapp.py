@@ -16,7 +16,7 @@ Time_Step = 12
 ########
 
 PROJECT_NAME = 'ForecastingAccidentsApp'
-CREDENTIALS = 'service_account_token.json'
+CREDENTIALS = 'forecastingaccidentsapp-03403efcc39d.json'
 MODEL_PATH = 'gs://forecast123/best_model.h5'
 import h5py
 
@@ -58,8 +58,8 @@ def creat_ds(x, y, time_step=1):
 
 @app.get('/')
 def root():
-    return {"message": "Forcast Munich Accidents value in category 'Alkoholunfälle' and 'insgesamt' accident type in 2020 and 12st month of 2021"}
-
+    return {"message": "Forcast Munich Accidents value in category 'Alkoholunfälle' and 'insgesamt' accident type from 2001 to 1st month of 2021"}
+00
 from typing import Dict
 
 class input_item(BaseModel):

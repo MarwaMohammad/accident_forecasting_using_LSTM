@@ -44,7 +44,7 @@ def creat_ds(x, y, time_step=1):
 
 @app.get('/')
 def root():
-    return {"message": "Forcast Munich Accidents value in category 'Alkoholunfälle' and 'insgesamt' accident type in 2020 and 12st month of 2021"}
+    return {"message": "Forcast Munich Accidents value in category 'Alkoholunfälle' and 'insgesamt' accident type from 2001 to 1st month of 2021"}
 
 from typing import Dict
 
