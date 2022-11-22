@@ -16,8 +16,9 @@ Time_Step = 12
 ########
 
 PROJECT_NAME = 'ForecastingAccidentsApp'
-CREDENTIALS = 'google_account_service'
+CREDENTIALS = 'google_service_account'
 MODEL_PATH = 'gs://forecast123/best_model.h5'
+#The h5py package is a Pythonic interface to the HDF5 binary data format. HDF5 lets you store huge amounts of numerical data,
 import h5py
 
 FS = gcsfs.GCSFileSystem(project=PROJECT_NAME, token=CREDENTIALS)
@@ -25,7 +26,7 @@ with FS.open(MODEL_PATH, 'rb') as model_file:
     model_gcs = h5py.File(model_file, 'r')
     model = tf.keras.models.load_model(model_gcs)
 
-
+#To start the app of FastAPI
 app = FastAPI()
 #model = load_model('best_model.h5')
 df = pd.read_csv('./data/Alko_Insg.csv', index_col='date')

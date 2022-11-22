@@ -12,6 +12,7 @@ import pickle
 
 Time_Step = 12
 
+#To start the app of FastAPI
 app = FastAPI()
 model = load_model('best_model.h5')
 df = pd.read_csv('./data/Alko_Insg.csv', index_col='date')
